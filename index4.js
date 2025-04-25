@@ -42,3 +42,133 @@ const drugs = [
     { id: 20, name: "Folic Acid", category: "Supplement", dosageMg: 5, isPrescriptionOnly: false, stock: 250, manufacturer: "Nature’s Bounty" }
    
    ]
+
+//Get all drugs that are antibiotics, using filter()
+const allAntibioticDrugs = drugs.filter(function(each) {
+    return each.category == "Antibiotic" 
+})
+
+console.log(allAntibioticDrugs)
+
+
+console.log(" ") // for spacing between one display of solution from another 
+
+
+// Return an array of drug names in lowercase, using map() and .toLowerCase()
+const drugsNameInLowercase = drugs.map(function (each) {
+    return{
+        name: each.name.toLowerCase()
+    }})
+
+console.log(drugsNameInLowercase)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+//function that accepts a category and returns all drugs under that category, using filter() and comparison operators
+function drugsCategory(category = " ") {
+
+
+    return drugs.filter(function(each){
+         return each.category === category
+        });
+    
+}
+
+const getCategory = drugsCategory("Supplement")
+console.log(getCategory)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+//Log each drug’s name and its manufacturer, using map()
+
+const drugNameAndManufacturer = drugs.map( function (each) {
+    return {
+        name: each.name,
+        manufacturer: each.manufacturer
+    }
+})
+
+console.log(drugNameAndManufacturer)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+// Return all drugs that require a prescription, using filtter(), and comparison operators
+
+const prescriptionDrugs = drugs.filter(function(each) {
+    return each.isPrescriptionOnly == true
+})
+
+console.log(prescriptionDrugs)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+//Return a new array, each item should follow the format: "Drug: [name] - [dosageMg]mg", using map() and ``
+
+const newDrugArray = drugs.map(function (each) {
+    return `Drugs:[${each.name}] - [${each.dosageMg}]mg`
+})
+
+console.log(newDrugArray)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+//function that returns all drugs with a stock less than 50, using Filter() and comparison operators
+
+const withStockLessThan50 = drugs.filter( function (each) {
+    return each.stock < 50
+})
+
+console.log(withStockLessThan50)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+// Return all drugs that are not prescription-only, using filtter(), and comparison operators
+
+const notPrescriptionDrugs = drugs.filter(function(each) {
+    return each.isPrescriptionOnly == false
+})
+
+console.log(notPrescriptionDrugs)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+
+//function that takes a manufacturer name and returns how many drugs are from that company, using Filter() and Comparison operators
+function drugsManufacturerName(manufacturer = " ") {
+
+    return drugs.filter(function(each){
+            return each.manufacturer === manufacturer
+    }).length
+    
+}
+const getNumberOfManufacturerName = drugsManufacturerName("GSK")
+console.log(getNumberOfManufacturerName)
+
+
+console.log(" ") // for spacing between one display of solution from another
+
+
+//Using forEach() to count how many drugs are Analgesics
+
+let analgesicsCount = 0
+drugs.forEach( function( each) {
+    if(each.category === "Analgesic") {
+        analgesicsCount++
+    }
+}) 
+
+console.log(analgesicsCount)
